@@ -1,8 +1,9 @@
 import React from 'react'
+import { Layout } from '../components'
 
 const Items = () => {
   return (
-    <div>Items</div>
+    <Layout>Items</Layout>
   )
 }
 
