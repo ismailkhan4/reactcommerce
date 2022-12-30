@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Cartcontext } from '../context/Context';
 
 const Navbar = () => {
+    const {state} = useContext(Cartcontext);
+    let cartQuantity = state.length;
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm fs-4 px-5">
             <div className="container-fluid">
@@ -23,7 +26,7 @@ const Navbar = () => {
                     </ul>
                     <div className="buttons">
                         <Link className='btn btn-outline-dark' to='/checkout'>
-                            Cart 0
+                            Cart {cartQuantity}
                         </Link>
                     </div>
                 </div>
