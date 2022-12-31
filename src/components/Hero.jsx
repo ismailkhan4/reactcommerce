@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Hero = () => {
-
     return (
         <div className='hero'>
             <div className="card bg-dark text-white border-0">

@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
-import {Footer, Navbar} from './'
+import { Footer, Navbar } from './'
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
     <Fragment>
-        <Navbar />
-        {children}
-        <Footer />
+      <Navbar />
+      {children}
+      <Footer />
     </Fragment>
   )
 }

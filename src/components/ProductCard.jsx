@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
 
     const notify = () => toast.success('Addded to cart successfully.', {
         position: "top-right",
-        autoClose: 3000,
+        autoClose: 500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -17,9 +17,12 @@ const ProductCard = ({ product }) => {
         progress: undefined,
         theme: "light",
     });
+    const productIdInCart = Globalstate.state.map(({ id }) => id)
     const handleAddToCart = (item) => {
-        notify()
-        dispatch({ type: "ADD", payload: item })
+        if (!productIdInCart.includes(item.id)) {
+            notify()
+            dispatch({ type: "ADD", payload: item })
+        }
     }
     return (
         <>
@@ -28,7 +31,7 @@ const ProductCard = ({ product }) => {
                 return (
                     <div className="col" key={index} >
                         <div className="card h-70">
-                            <img src={item.img} className="card-img-top h-10" style={{ height: 300 }} />
+                            <img src={item.img} className="card-img-top h-10" style={{ height: 300 }} alt={item.name} />
                             <div className="card-body">
                                 <h5 className="card-title text-center">{item.name}</h5>
                                 <h5 className='text-center'>Price:<span className='fs-3 fw-bold text-success'>{formatCurrency(item.price)}</span></h5>
@@ -42,7 +45,7 @@ const ProductCard = ({ product }) => {
             })}
             <ToastContainer
                 position="top-right"
-                autoClose={5000}
+                autoClose={500}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

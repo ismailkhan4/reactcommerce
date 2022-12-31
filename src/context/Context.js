@@ -36,6 +36,9 @@ export const Context = (props) => {
 
         return tempstate3;
 
+        case "CLEARCART":
+          return { ...state, item: [''] }
+
       default:
         return state;
     }
