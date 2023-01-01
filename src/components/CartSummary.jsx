@@ -13,7 +13,7 @@ const CartSummary = () => {
     }, 0);
     const notify = () => toast.success('Thank you for your Shopping! Your order is on the way 🚀', {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -23,7 +23,9 @@ const CartSummary = () => {
     });
     const handleCheckout = () => {
         notify()
-        dispatch({ type: "CLEARCART" })
+        setTimeout(() => {
+            dispatch({ type: "CLEARCART" })
+        }, 3000);
     }
     return (
         <div className="col-lg-4 bg-grey">
